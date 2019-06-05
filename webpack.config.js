@@ -2,6 +2,7 @@ const path = require('path');
 
 // js minification plugin
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -32,9 +33,15 @@ module.exports = {
   },
 
   plugins: [
+
     new MiniCssExtractPlugin({
       filename: './css/build/main.min.css'
-    })
+    }),
+
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['./js/build/*','./css/build/*']
+    }),
+
   ],
 
   optimization: {
