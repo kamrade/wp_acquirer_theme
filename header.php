@@ -13,6 +13,10 @@
   <header class="site-header">
     <div class="container">
 
+      <?php if (is_page('about')) { ?>
+        <p>About page header addon</p>
+      <?php } ?>
+
       <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
       <h5><?php bloginfo('description'); ?></h5>
 
