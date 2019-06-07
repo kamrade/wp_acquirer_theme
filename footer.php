@@ -4,7 +4,7 @@
 
     <p><?php bloginfo('name'); ?> - &copy; <?php echo date('Y'); ?></p>
 
-    <nav class="site-nav">
+    <nav class="site-nav-footer">
       <?php $args = array( 'theme_location' => 'footer' ); ?>
       <?php wp_nav_menu( $args ); ?>
     </nav>
