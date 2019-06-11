@@ -28,6 +28,17 @@ module.exports = {
       }, {
         test: /\.(sass|scss)$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        // use: [ 'file-loader' ],
+        loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
+      }, {
+        test:/\.html$/,
+        include: path.resolve(__dirname, 'src/templates/includes'),
+        loader: [
+          'raw-loader',
+        ]
       }
     ]
   },

@@ -22,9 +22,11 @@ register_nav_menus(array(
 ));
 
 // DISABLE ADMIN BAR
-add_action('after_setup_theme', 'remove_admin_bar');
+// add_action('after_setup_theme', 'remove_admin_bar');
+// show_admin_bar(false);
+function hide_admin_bar(){ return false; }
+add_filter( 'show_admin_bar', 'hide_admin_bar' );
 
-show_admin_bar(false);
 
 function console_log($data) {
   echo '<script>';
@@ -34,7 +36,7 @@ function console_log($data) {
 
 // ENABLE MENU DESCRIPTIONS
 class Menu_With_Description extends Walker_Nav_Menu {
-  function start_el(&$output, $item, $depth, $args) {
+  function start_el(&$output, $item, $depth = 0, $args = 0, $id = 0) {
 
     // global $wp_query;
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -89,21 +91,33 @@ function get_top_ancestor_id() {
   return $post->ID;
 }
 
+function acquirer_theme_setup() {
+
+  // FEATURED IMAGES SUPPORT
+  add_theme_support('post-thumbnails');
+
+}
+
+add_action('after_setup_theme', 'acquirer_theme_setup');
+
 // CREATE POST TYPE
-function create_posttype() {
+function acquirer_create_posttype() {
   register_post_type( 
-    'wpll_books',
+    'acquirer_books',
     array(
       'labels' => array(
         'name' => __( 'Books' ),
         'singular_name' => __( 'Book' ),
+        'add_new' => 'Add book'
       ),
-      'menu_position' => 5,
       'public' => true,
       'has_archive' => true,
-      'rewrite' => array( 'slug' => 'books' )
+      'rewrite' => array( 'slug' => 'books' ),
+      'menu_position' => 5,
+      'menu_icon' => 'dashicons-book',
+      'supports' => array('title', 'editor', 'thumbnail', 'post-format', 'excerpt'),
     )
   );
 }
 
-add_action( 'init', 'create_posttype');
+add_action( 'init', 'acquirer_create_posttype');
