@@ -88,3 +88,22 @@ function get_top_ancestor_id() {
 
   return $post->ID;
 }
+
+// CREATE POST TYPE
+function create_posttype() {
+  register_post_type( 
+    'wpll_books',
+    array(
+      'labels' => array(
+        'name' => __( 'Books' ),
+        'singular_name' => __( 'Book' ),
+      ),
+      'menu_position' => 5,
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array( 'slug' => 'books' )
+    )
+  );
+}
+
+add_action( 'init', 'create_posttype');

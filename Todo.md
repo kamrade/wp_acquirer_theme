@@ -11,3 +11,7 @@
 
 ## Reminders
 - [   ] Отключить super cache на проде.
+
+## Learn
+- wp-config WP_DEBUG = true
+- Если удалить файл wp-config.php и перезагрузиться, мы сбросим WP.

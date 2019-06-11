@@ -11,16 +11,9 @@
 
         if (have_posts()):
           while (have_posts()) : the_post();
-      ?>
 
-        <article class="post">
-          <h2><a href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
-          </a></h2>
-          <p><?php the_content(); ?></p>
-        </article>
+            get_template_part('./template_parts/post_content');
 
-      <?php
           endwhile;
 
         else :
