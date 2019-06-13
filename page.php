@@ -5,7 +5,6 @@
 ?>
 
   <div class="site-content">
-    <div class="container">
 
       <?php
 
@@ -16,8 +15,13 @@
         <article class="post page">
           <!-- TEMPORARY TURN OFF CHILDREN NAVIGATION -->
           <?php  // get_template_part('./template_parts/children_navigation'); ?>
-          <h2 class="page-title"><?php the_title(); ?></h2>
+
+          <div class="container">
+            <h2 class="page-title"><?php the_title(); ?></h2>
+          </div>
+
           <p><?php the_content(); ?></p>
+
         </article>
 
       <?php
@@ -29,7 +33,6 @@
 
       ?>
 
-    </div>
   </div>
 
 <?php
