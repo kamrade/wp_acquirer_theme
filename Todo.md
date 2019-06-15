@@ -1,13 +1,18 @@
 ## Layout
-- [   ] Раскрывающиеся пункты меню. Реализация.
-- [   ] Стили для меню.
-- [   ] Создать разные templates для разных страниц.
+- [   ] Раскрывающиеся пункты меню. Реализация.  
+- [ x ] Стили для меню.
+- [ x ] Создать разные templates для разных страниц.
 - [   ] Apply форма.
 - [   ] Featured images
 - [   ] Custom home page.
 
 ## Features
 - [   ] Возможность смены языка. Поддержка локалей.
+- [   ] Underscore
+- [   ] Jetpack
+- [   ] Navwalker
+- [   ] TGM
+- [   ] Theme options redux
 
 ## Reminders
 - [   ] Отключить super cache на проде.

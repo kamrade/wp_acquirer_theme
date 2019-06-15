@@ -102,7 +102,7 @@ add_action('after_setup_theme', 'acquirer_theme_setup');
 
 // CREATE POST TYPE
 function acquirer_create_posttype() {
-  register_post_type( 
+  register_post_type(
     'acquirer_books',
     array(
       'labels' => array(
@@ -121,3 +121,9 @@ function acquirer_create_posttype() {
 }
 
 add_action( 'init', 'acquirer_create_posttype');
+
+
+/*
+* ACF
+*/
+// require get_template_directory() . '/inc/acf-options.php';
